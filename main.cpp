@@ -9,22 +9,21 @@ string decrypt(string, string);
 
 int main(){
 
-    string key, input, e_key, d_key;
-    cin >> key;
-    cin >> input;
+    string key, plaintext, encryption, decryption;
 
-    key = make_key(key, input);
-    e_key = encrypt(key, input);
+    key = make_key(key, plaintext);
+    encryption = encrypt(key, plaintext);
+    decryption = decrypt(key, encryption);
 
     return 0;
 
 }
 
-string make_key(string key, string input){
+string make_key(string key, string plaintext){
 
     string new_key = "";
 
-    for(int i = 0; i < input.length(); i++){
+    for(int i = 0; i < plaintext.length(); i++){
 
         new_key = new_key + key[i%key.length()];
 
@@ -35,18 +34,18 @@ string make_key(string key, string input){
     return new_key;
 }
 
-string encrypt(string key, string input){
+string encrypt(string key, string plaintext){
 
 
     string encrypt_key = "";
 
     char temp;
 
-    for(int i = 0; i < input.length(); i++){
+    for(int i = 0; i < plaintext.length(); i++){
 
         //key = tolower(key[i]);
-        //input = tolower(input[i]);
-        temp = ((tolower(input[i]) + tolower(key[i]) - 12)%26) + 65;
+        //plaintext = tolower(plaintext[i]);
+        temp = ((tolower(plaintext[i]) + tolower(key[i]) - 12)%26) + 65;
 
         //cout << (int)temp << temp << " ";
         encrypt_key+=temp;
@@ -57,11 +56,20 @@ string encrypt(string key, string input){
 
 }
 
-string decrypt(string key, string input){
+string decrypt(string key, string encryption){
 
+    string decrypt_key = "";
 
+    char temp;
 
+    for(int i = 0; i < encryption.length(); i++){
 
+        temp = (tolower(encryption[i]) - tolower(key[i]) + 26)%26 + 65;
+        //cout << temp << " " ;
 
-    
+        decrypt_key+=temp;
+    }
+
+    return decrypt_key;
+
 }
