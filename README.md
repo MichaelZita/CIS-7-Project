@@ -12,12 +12,15 @@
 
 June 7, 2023
 
-# To compile
+# To compile & run
 
-You use the Makefile and run:
-`make run`
+You can use the Makefile and type:
+```
+make run
+```
+This will compile and run the project.
 
-Or you can compile it by hand using:
+Or you can compile and run it by typing:
 ```
 g++ -std=c++17 -o main main.cpp
 ./main
