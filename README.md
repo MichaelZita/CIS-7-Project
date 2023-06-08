@@ -12,16 +12,23 @@
 
 June 7, 2023
 
-# To compile & run
+# How to use
 
-You can use the Makefile and type:
+First, change directory into src:
+```
+cd src
+```
+
+Then you can use the Makefile to compile and run the project.
+Please, type:
 ```
 make run
 ```
-This will compile and run the project.
 
 Or you can compile and run it by typing:
 ```
 g++ -std=c++17 -o main main.cpp
 ./main
 ```
+
+Either way works. 
