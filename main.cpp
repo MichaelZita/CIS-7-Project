@@ -56,7 +56,7 @@ int main(){
                 cout << "Not an option!" << endl;
         }
 
-    }while(menu < 3 && menu > 0);
+    }while(menu != 0);
 
 
     return 0;
